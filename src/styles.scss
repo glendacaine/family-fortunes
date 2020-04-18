@@ -1,0 +1,17 @@
+@import '~node_modules/bootstrap/scss/bootstrap';
+@import './sass/margins.scss';
+@import './sass/styles.scss';
+
+$blue: #162252;
+
+body {
+	background-color: $blue;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.w-50 {
+	width: 50%;
+}

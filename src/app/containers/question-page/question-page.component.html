@@ -1,0 +1,61 @@
+<div class="container" *ngIf="questions">
+	<div class="row ff-mt-40">
+		<div class="col-10 offset-1 offset-md-0 col-md-4 question-div">
+			<div>Question
+				<span class="q-number">{{questionNum + 1}}</span>
+			</div>
+		</div>
+		<div class="col-10 col-md-4 offset-1 offset-md-4 question-div mt-2 mt-md-0">
+			<span>{{seconds}}</span>
+			<button class="btn btn-success timer-start ff-ml-20" (click)="startTimer()">
+				<i class="fas fa-clock"></i>&nbsp;Start
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<div>
+				<div class="question">{{question.question}}</div>
+			</div>
+			<div class="panel ff-mb-20">
+				<div *ngFor="let answer of question.answers; let idx = index">
+					<div class="answer-wrapper">
+						<div class="number">{{idx + 1}}</div>
+						<div class="answer" *ngIf="reveals[idx]">{{answer}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-3">
+			<button [disabled]="questionNum === 0" (click)="back()" class="btn btn-success w-100">
+				<i class="fas fa-chevron-left ff-mr-4"></i> <span class="d-none d-md-inline">Prev Question</span>
+			</button>
+		</div>
+		<div class="col-6">
+			<button (click)="revealAnswers()" class="btn ff-mr-10 w-100"
+				[ngClass]="{'btn-success': !this.revealAll, 'btn-danger': this.revealAll}">
+				<span *ngIf="!revealAll"><i class="fas fa-check"></i> Reveal</span>
+				<span *ngIf="revealAll"><i class="fas fa-times"></i> Hide</span> All
+			</button>
+		</div>
+		<div class="col-3">
+			<button [disabled]="questionNum === questions.length - 1" (click)="next()"
+				class="btn btn-success ff-mr-10 w-100">
+				<span class="d-none d-md-inline">Next Question</span> <i class="fas fa-chevron-right ff-ml-4"></i>
+			</button>
+		</div>
+	</div>
+	<div class="row ff-mt-10">
+		<div class="col-12 reveal-wrapper">
+			<div class="button-wrapper" *ngFor="let answer of answersArray">
+				<button class="btn reveal" (click)="reveal(answer)"
+					[ngClass]="{'btn-success': !this.reveals[answer], 'btn-danger': this.reveals[answer]}">
+					<span *ngIf="!reveals[answer]"><i class="fas fa-check"></i> Reveal {{answer + 1}}</span>
+					<span *ngIf="reveals[answer]"><i class="fas fa-times"></i>&nbsp;Hide {{answer + 1}}</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

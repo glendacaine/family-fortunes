@@ -1,0 +1,59 @@
+<div class="page-wrapper container ff-mt-40">
+	<div class="row">
+		<div class="col-12">
+			<h1>Bingo!</h1>
+		</div>
+	</div>
+	<div class="row ff-mt-50">
+		<div class="col-12 col-lg-5" *ngIf="balls && balls.length > 0">
+			<div class="row">
+				<div class="col-12">
+					<div class="ball">
+						<div class="number" *ngIf="currentBall">
+							{{currentBall.number}}
+						</div>
+						<div class="number eyes-down" *ngIf="!currentBall">
+							Eyes Down
+						</div>
+					</div>
+				</div>
+				<div class="col-10 offset-1 ff-mt-10">
+					<button [disabled]="!balls || balls.length === 0" class="btn btn-success w-100 next-ball ff-mb-20"
+						(click)="nextBall()">
+						Next Ball
+					</button>
+				</div>
+			</div>
+		</div>
+		<div [class]="getClass()">
+			<div class="row" *ngIf="balls && balls.length > 0">
+				<div class="small-ball-wrapper" *ngFor="let ball of balls">
+					<div class="small-ball" *ngIf="ball.played">
+						<div class="number">{{ball.number}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="row new-game-info justify-content-center" *ngIf="!balls || balls.length === 0">
+				Enter number of balls and hit new game to start
+			</div>
+			<div class="row">
+				<div class="col-12 ff-mt-50">
+					<div class="row">
+						<div class="col-6">
+							<div class="row form-group ff-mb-0">
+								<label class="col-8 text-right">number of balls</label>
+								<input class="form-control col-4" type="number" [(ngModel)]="numberOfBalls"
+									placeholder="numberOfBalls" />
+							</div>
+						</div>
+						<div class="col-6">
+							<button class="btn btn-success w-100" (click)="confirmNewGame()">
+								New Game
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

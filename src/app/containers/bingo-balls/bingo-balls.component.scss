@@ -1,0 +1,71 @@
+$ball-gradient: 100px;
+$ball-size: 300px;
+$small-ball-size: 55px;
+
+.ball,
+.small-ball {
+	display: block;
+	width: $ball-size;
+	height: $ball-size;
+	margin: 50px auto 0;
+	border-radius: 50%;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset -25px -15px 40px rgba(0, 0, 0, .3);
+	background-image: linear-gradient(-45deg, rgba(255, 255, 220, .3) 0%, transparent 100%);
+
+	.number {
+		display: flex;
+		height: $ball-size;
+		width: $ball-size;
+		align-items: center;
+		justify-content: center;
+		font-size: 120px;
+		font-weight: bold;
+		color: #222;
+		text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+
+		&.eyes-down {
+			font-size: 60px;
+			line-height: 60px;
+		}
+	}
+}
+
+.small-ball-wrapper {
+	height: $small-ball-size + 10;
+	width: $small-ball-size + 10;
+	border: 1px solid lighten(yellow, 30%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.small-ball {
+		color: #222;
+		text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+		width: $small-ball-size;
+		height: $small-ball-size;
+		box-shadow: inset -2px -5px 10px rgba(0, 0, 0, .3);
+		margin-top: 0;
+
+		.number {
+			height: $small-ball-size;
+			width: $small-ball-size;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
+			font-weight: bold;
+			color: #222;
+			text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
+		}
+	}
+}
+
+.next-ball {
+	font-size: 30px;
+}
+
+.new-game-info {
+	font-size: 40px;
+	border-bottom: 2px solid yellow;
+	padding-bottom: 20px;
+}
