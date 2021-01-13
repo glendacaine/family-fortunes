@@ -23,9 +23,17 @@
 						Next Ball
 					</button>
 				</div>
+				<div class="col-10 offset-1 ff-mt-10 calls" *ngIf="currentBall">
+					{{calls[currentBall.number - 1]}}
+				</div>
 			</div>
 		</div>
 		<div [class]="getClass()">
+			<div class="row" *ngIf="balls && balls.length > 0">
+				<div class="col-12 balls-called">
+					{{ballsCalled}}
+				</div>
+			</div>
 			<div class="row" *ngIf="balls && balls.length > 0">
 				<div class="small-ball-wrapper" *ngFor="let ball of balls">
 					<div class="small-ball" *ngIf="ball.played">

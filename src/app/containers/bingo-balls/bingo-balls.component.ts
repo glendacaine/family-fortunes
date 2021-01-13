@@ -14,10 +14,14 @@ export class BingoBallsComponent implements OnInit {
 	numberOfBalls: number;
 	currentBall: BingoBall;
 	numberOfRows = this.numberOfBalls / 10;
+	calls: string[];
+	ballsCalled: number;
 
 	constructor(
 		private store: Store
 	) {
+		this.populateCalls();
+
 		this.store.select(state => state.bingo)
 			.subscribe(bingo => {
 				this.numberOfBalls = bingo.numberOfBalls;
@@ -31,6 +35,7 @@ export class BingoBallsComponent implements OnInit {
 	}
 
 	newGame() {
+		this.ballsCalled = 0;
 		this.store.dispatch([new BingoSetNumberOfBalls(this.numberOfBalls), new BingoNewGame()]);
 	}
 
@@ -46,13 +51,16 @@ export class BingoBallsComponent implements OnInit {
 	}
 
 	nextBall() {
+
 		const nextBall = Math.floor(Math.random() * this.numberOfBalls) + 1;
 
 		if (this.balls[nextBall - 1].played) {
 			this.nextBall();
+			return;
 		}
 
 		this.store.dispatch(new BingoSetBallPlayed(nextBall));
+		this.ballsCalled = this.balls.filter(b => b.played).length;
 	}
 
 	getClass() {
@@ -61,5 +69,100 @@ export class BingoBallsComponent implements OnInit {
 		}
 
 		return 'col-12 col-lg-7';
+	}
+
+	populateCalls() {
+		this.calls = [
+			'Kellys Eye',
+			'Open a window',
+			'Cup of Tea',
+			'Knock at the Door',
+			'Man Alive',
+			'Tom Mix',
+			'Lucky Seven',
+			'Sexy Kate',
+			'Doctor’s Orders',
+			'Stick your tongue up a hen',
+			'Legs 11',
+			'One Dozen',
+			'Unlucky for Some',
+			'Valentine’s Day',
+			'Young and Keen',
+			'Sweet 16',
+			'Dancing Queen',
+			'Coming of Age',
+			'Keep ‘em keen',
+			'Getting plenty ',
+			'Adult fun',
+			'Two Little Ducks',
+			'Thee and Me',
+			'Red Raw',
+			'Duck and Dive',
+			'Pick and Mix',
+			'Gateway to Heaven',
+			'Over Weight',
+			'Rise and Shine',
+			'Dirty Gertie',
+			'Up the Bum',
+			'Buckle My Shoe',
+			'Dirty Knee',
+			'Ask for More',
+			'Jump and Jive',
+			'Three Dozen',
+			'More than 11',
+			'Christmas Cake',
+			'Steps',
+			'Naughty 40',
+			'I’ve done your mum',
+			'Winnie the Pooh',
+			'Down on Your Knees',
+			'On all fours',
+			'Halfway There',
+			'Up to Tricks',
+			'Four and Seven',
+			'Four Dozen',
+			'PC',
+			'Half a Century',
+			'Tweak of the Thumb',
+			'Danny La Rue',
+			'Stuck in the Tree',
+			'Clean the Floor',
+			'Snakes Alive',
+			'Was She Worth It?',
+			'Heinz Varieties',
+			'Make Them Wait',
+			'Brighton Line',
+			'Five Dozen',
+			'Bakers Bun',
+			'Turn the Screw',
+			'Tickle Me 63',
+			'Red Raw',
+			'Muff Dive',
+			'Mutual licks',
+			'Take me to heaven',
+			'Time to mate',
+			'Either Can Dine',
+			'Three Score and 10',
+			'Bang on the Drum',
+			'Six Dozen',
+			'Queen B',
+			'Candy Store',
+			'Strive and Strive',
+			'Trombones',
+			'Sunset Strip',
+			'Heaven’s Gate',
+			'One More Time',
+			'Eight and Blank',
+			'Stop and Run',
+			'Straight On Through',
+			'Time for Tea',
+			'Seven Dozen',
+			'Staying Alive',
+			'Between the Sticks',
+			'Torquay in Devon',
+			'Two Fat Ladies',
+			'Nearly There',
+			'Top of the Shop'
+		];
 	}
 }
