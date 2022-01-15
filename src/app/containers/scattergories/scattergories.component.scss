@@ -1,0 +1,100 @@
+$blue: #162252;
+
+.page-wrapper {
+	width: 80%;
+	margin: auto;
+
+	.starting {
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.big-button {
+		margin-top: 60px;
+		font-size: 60px;
+		padding: 10px 60px;
+	}
+
+	.whos {
+		padding-top: 10px;
+		font-size: 30px;
+		color: yellow;
+	}
+
+	.ready {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		font-size: 60px;
+
+		&.starting {
+			font-size: 60px;
+		}
+	}
+
+	.letter-wrapper {
+		border: 10px solid yellow;
+		background-color: purple;
+		height: 360px;
+		width: 360px;
+		border-radius: 180px;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 180px;
+	}
+
+	.timer {
+		position: absolute;
+		bottom: 0;
+
+		.timer-wrapper {
+			border: 10px solid yellow;
+			background-color: purple;
+			height: 200px;
+			width: 100%;
+			border-radius: 20px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 140px;
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+
+			&.selecting-letter {
+				font-size: 54px;
+			}
+		}
+	}
+
+	.wrapper {
+		border: 10px solid yellow;
+		border-radius: 20px;
+		background-color: $blue;
+		color: white;
+
+		&.big {
+			font-size: 120px;
+		}
+
+		&.list-wrapper {
+			.item-list {
+				padding: 4px 10px 10px 50px;
+
+				li {
+					text-align: left;
+					font-size: 26px;
+					padding: 3px;
+				}
+			}
+		}
+	}
+
+	.new-game {
+		font-size: 20px;
+	}
+}

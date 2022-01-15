@@ -4,18 +4,18 @@ import { QuestionsGetAll } from 'src/app/store/family-fortunes/family-fortunes.a
 import { Navigate } from '@ngxs/router-plugin';
 
 @Component({
-    selector: 'app-family-fortunes',
-    templateUrl: './family-fortunes.component.html',
-    styleUrls: ['./family-fortunes.component.scss']
+	selector: 'app-family-fortunes',
+	templateUrl: './family-fortunes.component.html',
+	styleUrls: ['./family-fortunes.component.scss']
 })
 export class FamilyFortunesComponent implements OnInit {
-    constructor(private store: Store) { }
+	constructor(private store: Store) { }
 
-    ngOnInit() {
-        this.store.dispatch(new QuestionsGetAll());
-    }
+	ngOnInit() {
+		this.store.dispatch(new QuestionsGetAll());
+	}
 
-    go() {
-        this.store.dispatch(new Navigate(['family-fortunes', 'question', 0]));
-    }
+	go() {
+		this.store.dispatch(new Navigate(['family-fortunes', 'question', 0]));
+	}
 }

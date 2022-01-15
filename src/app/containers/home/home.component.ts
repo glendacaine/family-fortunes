@@ -4,17 +4,17 @@ import { Store } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+	selector: 'app-home',
+	templateUrl: './home.component.html',
+	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    constructor(private store: Store) { }
+	constructor(private store: Store) { }
 
-    ngOnInit(): void {
-    }
+	ngOnInit(): void {
+	}
 
-    goToGame(game) {
-        this.store.dispatch(new Navigate([game]));
-    }
+	goToGame(game) {
+		this.store.dispatch(new Navigate([game]));
+	}
 }

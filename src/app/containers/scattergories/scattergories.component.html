@@ -1,0 +1,65 @@
+<div class="page-wrapper ff-mt-40">
+	<div class="row">
+		<div class="col-12">
+			<h1>Scattergories</h1>
+		</div>
+	</div>
+	<ng-container *ngIf="list">
+		<div class="row ff-mt-40 d-flex">
+			<div class="col-md-6">
+				<div class="list-wrapper wrapper">
+					<div class="whos">
+						{{list.name}}
+					</div>
+					<ol class="item-list">
+						<li *ngFor="let item of list.items; let idx = index">{{item}}</li>
+					</ol>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<ng-container *ngIf="!readySteady">
+					<div class="row ff-mb-40">
+						<div class="col-12">
+							<div class="letter-wrapper letter big">
+								{{currentLetter}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 timer">
+							<div *ngIf="letterPicked" class="timer-wrapper big">
+								{{secondsAsString}}
+							</div>
+							<div *ngIf="!letterPicked" class="timer-wrapper selecting-letter">
+								Selecting Letter
+							</div>
+						</div>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="readySteady">
+					<div class="row h-100">
+						<div class="col-12">
+							<div class="ready d-flex justify-content-center {{readyClass}}">
+								<span [innerHTML]="readySteady"></span>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		</div>
+		<div class="row ff-mt-20">
+			<div class="col-6">
+				<button class="btn btn-success w-100 new-game" (click)="newList()">
+					New Game
+				</button>
+			</div>
+		</div>
+	</ng-container>
+	<div class="row" *ngIf="!list">
+		<div class="col-12">
+			<button class="btn btn-success big-button" (click)="newList()">
+				Let's Play
+			</button>
+		</div>
+	</div>
+</div>

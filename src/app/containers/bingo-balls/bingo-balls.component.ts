@@ -51,7 +51,6 @@ export class BingoBallsComponent implements OnInit {
 	}
 
 	nextBall() {
-
 		const nextBall = Math.floor(Math.random() * this.numberOfBalls) + 1;
 
 		if (this.balls[nextBall - 1].played) {

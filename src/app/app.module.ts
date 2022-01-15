@@ -19,6 +19,7 @@ import { LayoutPageComponent } from './containers/layout-page/layout-page.compon
 import { FamilyFortunesComponent } from './containers/family-fortunes/family-fortunes.component';
 import { BingoBallsComponent } from './containers/bingo-balls/bingo-balls.component';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { ScattergoriesComponent } from './containers/scattergories/scattergories.component';
 
 export function RestangularConfigFactory(RestangularProvider) {
 	RestangularProvider.setBaseUrl(environment.api);
@@ -33,6 +34,7 @@ export function RestangularConfigFactory(RestangularProvider) {
 		LayoutPageComponent,
 		FamilyFortunesComponent,
 		BingoBallsComponent,
+		ScattergoriesComponent,
 	],
 	imports: [
 		BrowserModule,
