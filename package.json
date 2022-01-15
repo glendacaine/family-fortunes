@@ -38,7 +38,7 @@
     "howler": "^2.2.1",
     "immer": "^3.1.1",
     "install": "^0.13.0",
-    "jquery": "^1.12.4",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ngx-bootstrap": "^5.3.2",
     "ngx-owl-carousel-o": "^1.2.0",
